@@ -20,7 +20,9 @@ export const model = [
 		type: 'images',
 		value: img1,
 		options: {
-			styles: 'width: 100%;'
+			styles: 'padding: 1rem; display: flex; justify-content: center;',
+			alt: 'Computer of developer',
+			styleImage: 'width: 500px; height: auto;'
 		}
 	},
 	{

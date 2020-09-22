@@ -20,15 +20,8 @@ function textColumns(block) {
 }
 
 function images(block) {
-	const styles = block.options.styles
-	return row(col(
-		`<img src="${block.value}" style="${styles}">`
-	))
+	const {styleImage, styles, alt} = block.options
+	return row(`<img src="${block.value}" style="${styleImage}" alt="${alt}">`, styles)
 }
 
-export const handler = {
-	title,
-	text,
-	textColumns,
-	images
-}
+export const handler = {title, text, textColumns, images}
