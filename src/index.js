@@ -6,6 +6,6 @@ const site = document.querySelector('#site')
 
 model.forEach(block => {
 	
-	const html = handler[block.type](block)
+	const html = block.toHTML()
 	site.insertAdjacentHTML('beforeend', html)
 })
