@@ -17,7 +17,7 @@ export const model = [
 		styleImage: 'width: 500px; height: auto;'
 		}
 	),
-	new TextColumnBlock ('textColumns', [
+	new TextColumnBlock ([
 		'Текст 1',
 		'Текст 2',
 		'Текст 3',

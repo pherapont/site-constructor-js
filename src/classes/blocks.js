@@ -8,6 +8,14 @@ class Block {
 	toHTML() {
 		throw new Error('Метод toHTML должен быть реализован!')
 	}
+
+	row(element, style = '') {
+		return `<div class="row" style="${style}">${element}</div>`
+	}
+
+	col(element) {
+		return `<div class="col-sm">${element}</div>`
+	}
 }
 
 export class TitleBlock extends Block {
@@ -17,7 +25,7 @@ export class TitleBlock extends Block {
 
 	toHTML() {
 		const {styles, tag} = this.options
-		return row(col(`<${tag || 'h1'}>${this.value}</${tag || 'h1'}>`), styles)
+		return this.row(this.col(`<${tag || 'h1'}>${this.value}</${tag || 'h1'}>`), styles)
 	}
 }
 
@@ -28,7 +36,7 @@ export class ImageBlock extends Block {
 
 	toHTML() {
 		const {styleImage, styles, alt} = this.options
-		return row(`<img src="${this.value}" style="${styleImage}" alt="${alt}">`, styles)
+		return this.row(`<img src="${this.value}" style="${styleImage}" alt="${alt}">`, styles)
 	}
 }
 
@@ -39,7 +47,7 @@ export class TextBlock extends Block {
 
 	toHTML() {
 		const {styles} = this.options
-		return row(col(this.value), styles)
+		return this.row(this.col(this.value), styles)
 	}
 }
 
@@ -50,7 +58,7 @@ export class TextColumnBlock extends Block {
 
 	toHTML() {
 		const {styles} = this.options
-		const textArr = this.value.map(item => col(item))
-		return row(textArr.join(''), styles)
+		const textArr = this.value.map(item => this.col(item))
+		return this.row(textArr.join(''), styles)
 	}
 }
