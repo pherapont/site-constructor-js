@@ -1,9 +1,15 @@
 import {TitleBlock, ImageBlock, TextBlock, TextColumnBlock} from './classes/blocks'
 import img1 from './images/dev.jpg';
+import { css } from './utils';
 
 export const model = [
 	new TitleBlock ('Конструктор сайтов', {
-		styles: 'background-color: darkred; color: #fff; text-align: center; padding: 1rem;',
+		styles: css({
+			background: 'darkred',
+			color: '#fff',
+			padding: '1rem',
+			'text-align': 'center'
+		}),
 		tag: 'h5'
 		}
 	),

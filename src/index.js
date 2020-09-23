@@ -1,9 +1,15 @@
-import {model} from './model'
+import { model } from './model'
+import {Sidebar} from './classes/sidebar';
+import { Site } from './classes/site'
 import './styles/main.css';
 
-const site = document.querySelector('#site')
+const site = new Site('#site')
 
-model.forEach(block => {
-	const html = block.toHTML()
-	site.insertAdjacentHTML('beforeend', html)
-})
+const updateCollback = newBlock => {
+	model.push(newBlock)
+	site.render(model)
+}
+
+new Sidebar('#panel', updateCollback)
+
+site.render(model)
